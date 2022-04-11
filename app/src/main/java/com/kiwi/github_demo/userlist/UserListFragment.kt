@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.kiwi.github_demo.R
 import com.kiwi.github_demo.data.entites.User
 import com.kiwi.github_demo.databinding.UserListFragmentBinding
+import com.kiwi.github_demo.userlist.UserListFragmentDirections.Companion.actionUserListFragmentToUserDetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 import kotlinx.coroutines.launch
@@ -25,8 +27,9 @@ class UserListFragment : Fragment(R.layout.user_list_fragment), UserListContract
     lateinit var presenterFactory: UserListPresenter.Factory
     lateinit var presenter: UserListContract.Presenter
 
-    private
-    val adapter = UserListAdapter()
+    private val adapter = UserListAdapter { user ->
+        findNavController().navigate(actionUserListFragmentToUserDetailsFragment(user.login))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

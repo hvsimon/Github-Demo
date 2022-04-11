@@ -5,6 +5,7 @@ plugins {
     id("dagger.hilt.android.plugin")
     id("com.mikepenz.aboutlibraries.plugin")
     kotlin("plugin.serialization") version "1.6.10"
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {

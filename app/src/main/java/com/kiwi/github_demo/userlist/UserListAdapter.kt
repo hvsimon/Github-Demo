@@ -11,7 +11,9 @@ import coil.transform.CircleCropTransformation
 import com.kiwi.github_demo.data.entites.User
 import com.kiwi.github_demo.databinding.UserListItemBinding
 
-class UserListAdapter : PagingDataAdapter<User, UserListAdapter.ItemViewHolder>(UserComparator) {
+class UserListAdapter(
+    var onItemClick: ((item: User) -> Unit)? = null,
+) : PagingDataAdapter<User, UserListAdapter.ItemViewHolder>(UserComparator) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
@@ -31,6 +33,8 @@ class UserListAdapter : PagingDataAdapter<User, UserListAdapter.ItemViewHolder>(
 
         fun bind(item: User) {
             with(binding) {
+                root.setOnClickListener { onItemClick?.invoke(item) }
+
                 ivAvatar.load(item.avatarUrl) {
                     transformations(CircleCropTransformation())
                 }
