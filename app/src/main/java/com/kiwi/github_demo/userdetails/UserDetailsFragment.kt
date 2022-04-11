@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import coil.load
@@ -36,6 +37,7 @@ class UserDetailsFragment : Fragment(R.layout.user_details_fragment), UserDetail
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupToolbar()
         presenter.loadUser(arg.userName)
     }
 
@@ -54,5 +56,9 @@ class UserDetailsFragment : Fragment(R.layout.user_details_fragment), UserDetail
     override fun onDestroyView() {
         super.onDestroyView()
         presenter.stop()
+    }
+
+    private fun setupToolbar() {
+        binding.toolbar.setNavigationOnClickListener { findNavController().popBackStack() }
     }
 }
