@@ -1,11 +1,12 @@
 package com.kiwi.github_demo.data.repository
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import com.kiwi.data.di.IoDispatcher
 import com.kiwi.github_demo.data.api.GithubApi
 import dagger.Reusable
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlinx.coroutines.CoroutineDispatcher
 
 @Reusable
 class GithubRepository @Inject constructor(
@@ -13,9 +14,13 @@ class GithubRepository @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher,
 ) {
 
-    suspend fun listUsers() = runCatching {
-        withContext(ioDispatcher) {
-            githubApi.listUsers()
-        }
-    }
+    fun listUserPagingFlow(pageSize: Int) = Pager(
+        PagingConfig(
+            pageSize = pageSize,
+            enablePlaceholders = false,
+            initialLoadSize = pageSize,
+        )
+    ) {
+        UsersPagingSource(githubApi)
+    }.flow
 }

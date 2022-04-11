@@ -72,6 +72,8 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.paging.common.ktx)
+    implementation(libs.paging.runtime.ktx)
 
     // Google
     implementation(libs.material)
