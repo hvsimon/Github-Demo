@@ -6,7 +6,7 @@ A simple project to show how to use Github Rest API.
 
  + 100% [Kotlin](https://kotlinlang.org/)
  + MVP Architecture
- + Implements DI by dagger/hilt
+ + Implements DI by [dagger](https://github.com/google/dagger)
  + Use [Paging3](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) to paginate data list
  + Use [version catalog](https://docs.gradle.org/current/userguide/platforms.html) to share dependency versions
  + Use [ktlint](https://github.com/pinterest/ktlint) to check code style
@@ -18,7 +18,7 @@ A simple project to show how to use Github Rest API.
  + List Github user
  + Show Github user details
 
-## Github 
+## Github API
 
 Put you github token in `local.properties` by `GITHUB_TOKEN` property.
 
