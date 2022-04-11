@@ -1,6 +1,7 @@
 package com.kiwi.github_demo.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.kiwi.github_demo.data.HeaderInterceptor
 import com.kiwi.github_demo.data.api.GithubApi
 import dagger.Module
 import dagger.Provides
@@ -19,8 +20,9 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideOkHttp(): OkHttpClient {
+    fun provideOkHttp(headerInterceptor: HeaderInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
+            .addInterceptor(headerInterceptor)
             .build()
     }
 

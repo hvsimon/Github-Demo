@@ -18,6 +18,14 @@ A simple project to show how to use Github Resp API.
  + List Github user
  + Show Github user details
 
+## Github 
+
+Put you github token in `local.properties` by `GITHUB_TOKEN` property.
+
+Or you might reach the request rate limit.
+
+Reference: https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting
+
 ## License
 
 ```

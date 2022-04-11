@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -7,6 +9,8 @@ plugins {
     kotlin("plugin.serialization") version "1.6.10"
     id("androidx.navigation.safeargs.kotlin")
 }
+
+val githubToken: String = gradleLocalProperties(rootDir).getProperty("GITHUB_TOKEN") ?: ""
 
 android {
     compileSdk = libs.versions.compileSdk.get().toInt()
@@ -19,6 +23,8 @@ android {
         versionName = "0.1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "GITHUB_TOKEN", "\"$githubToken\"")
     }
 
     signingConfigs {
