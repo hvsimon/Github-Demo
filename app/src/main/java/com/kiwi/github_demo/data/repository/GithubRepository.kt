@@ -7,6 +7,7 @@ import com.kiwi.github_demo.data.api.GithubApi
 import dagger.Reusable
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 
 @Reusable
 class GithubRepository @Inject constructor(
@@ -23,4 +24,10 @@ class GithubRepository @Inject constructor(
     ) {
         UsersPagingSource(githubApi)
     }.flow
+
+    suspend fun getUserBy(username: String) = runCatching {
+        withContext(ioDispatcher) {
+            githubApi.getUserBy(username)
+        }
+    }
 }
