@@ -1,6 +1,6 @@
 # Github Demo
 
-A simple project to show how to use Github Resp API. 
+A simple project to show how to use Github Rest API. 
 
 ## Development
 
