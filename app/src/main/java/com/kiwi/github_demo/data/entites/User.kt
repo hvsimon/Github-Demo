@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class User(
     @SerialName("login") val login: String,
-    @SerialName("id") val id: String,
+    @SerialName("id") val id: Int,
     @SerialName("avatar_url") val avatarUrl: String,
     @SerialName("site_admin") val siteAdmin: Boolean,
 )
