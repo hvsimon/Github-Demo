@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("com.mikepenz.aboutlibraries.plugin")
+    kotlin("plugin.serialization") version "1.6.10"
 }
 
 android {
@@ -58,6 +59,12 @@ android {
 }
 
 dependencies {
+
+    // Jetbrains
+    implementation(libs.kotlin.coroutines.android)
+    implementation(libs.kotlin.coroutines.core)
+    implementation(libs.kotlin.serialization.json)
+
     // Androidx
     implementation(libs.core)
     implementation(libs.appcompat)
@@ -70,6 +77,14 @@ dependencies {
     implementation(libs.material)
 
     // DI
+    implementation(libs.dagger.dagger)
+    kapt(libs.dagger.compiler)
     implementation(libs.hilt.library)
     kapt(libs.hilt.compiler)
+
+    // Network
+    implementation(platform(libs.okhttp.bom))
+    implementation(libs.okhttp.core)
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.kotlinx.serialization.converter)
 }
