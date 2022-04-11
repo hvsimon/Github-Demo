@@ -27,7 +27,7 @@ class UsersPagingSource(
             val next = linkHeader.extractLinks().nextSinceValue()
             val data = response.body()!!
 
-            return LoadResult.Page(
+            LoadResult.Page(
                 data = data,
                 prevKey = null, // Only paging forward.
                 nextKey = next

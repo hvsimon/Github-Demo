@@ -89,4 +89,7 @@ dependencies {
     implementation(libs.okhttp.core)
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.kotlinx.serialization.converter)
+
+    implementation(libs.coil)
+    implementation(libs.viewbindingpropertydelegate)
 }
