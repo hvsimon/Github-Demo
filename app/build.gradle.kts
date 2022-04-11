@@ -93,4 +93,5 @@ dependencies {
 
     implementation(libs.coil)
     implementation(libs.viewbindingpropertydelegate)
+    debugImplementation(libs.leakcanary)
 }

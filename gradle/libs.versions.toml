@@ -38,6 +38,7 @@ retrofit-kotlinx-serialization-converter = "0.8.0"
 
 store = "4.0.4-KT15"
 timber = "5.0.1"
+leakcanary = "2.8.1"
 
 # Test
 junit-core = "4.13.2"
@@ -99,6 +100,7 @@ retrofit-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:
 
 store = { module = "com.dropbox.mobile.store:store4", version.ref = "store" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 
 # Test
 junit-core = { module = "junit:junit", version.ref = "junit-core" }
